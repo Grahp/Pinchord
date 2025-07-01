@@ -2,4 +2,8 @@
 
 (WIP) Full English Orthospelling Theory
 
-See grahp.dev/onyx
+<!-- See https://grahp.dev/onyx -->
+
+## Graphic
+
+![[graphic.png]]
