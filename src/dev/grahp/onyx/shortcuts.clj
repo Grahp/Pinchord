@@ -70,7 +70,7 @@
     {(str symbol-intial-chord mod-chord symbol-chord alt-chord)
      (shortcut mods sym)}))
 
-(gen-dict "shortcuts.json"
+(gen-dict "onyx-shortcuts.json"
           (-> (into {} (for [[mod-chord mods] mods
                              [letter-chord letter] letters]
                          [(str intial-chord mod-chord letter-chord)

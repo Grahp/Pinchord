@@ -35,7 +35,7 @@
                   "U" "00"
                   "IU" "000"})
 
-(gen-dict "numbers.json"
+(gen-dict "onyx-numbers.json"
           (apply merge (for [[np1-chord num1] numpad1
                              [np2-chord num2] numpad2
                              [pre-vowel-chord pre-vowel] pre-vowels
