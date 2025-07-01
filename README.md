@@ -6,4 +6,4 @@
 
 ## Graphic
 
-![Onyx Layout Graphic](images/layout graphic.png)
+![Onyx Layout Graphic](images/layout-graphic.png)
