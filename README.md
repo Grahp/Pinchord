@@ -1,3 +1,5 @@
 # Onyx
 
-Full English Orthospelling Dictionary.
+(WIP) Full English Orthospelling Theory
+
+See grahp.dev/onyx
