@@ -1,5 +1,5 @@
 (ns dev.grahp.onyx.shortcuts
-  (:require [clojure.data.json :as json]
+  (:require [dev.grahp.onyx.dict :refer [gen-dict]]
             [dev.grahp.onyx.symbols :as sym]))
 
 (def intial-chord "*TL")
@@ -31,7 +31,7 @@
               "LRKS" "x"
               "LR*" "y"
               "TS*" "z"
-              ;; F Keys
+              ;; Add F Keys
               "^LRK" "0"
               "^R" "1"
               "^RK" "2"
@@ -66,20 +66,19 @@
   (str "{#" (reduce with-mod letter mods) "}"))
 
 (defn sym [sym symbol-chord alt-chord mods mod-chord]
-  (when (and sym (not= sym ""))
+  (when sym
     {(str symbol-intial-chord mod-chord symbol-chord alt-chord)
      (shortcut mods sym)}))
 
-(spit "/home/grahp/Projects/steno/dicts/shortcuts.json"
-      (-> (into {} (for [[mod-chord mods] mods
-                         [letter-chord letter] letters]
-                     [(str intial-chord mod-chord letter-chord)
-                      (shortcut mods letter)]))
-          (merge (into {} (for [[mod-chord mods] mods
-                                [symbol-chord [sym1 sym2 sym3 sym4]] sym/special-symbols]
-                            (merge (sym sym1 symbol-chord "" mods mod-chord)
-                                   (sym sym2 symbol-chord "d" mods mod-chord)
-                                   (sym sym3 symbol-chord "*" mods mod-chord)
-                                   (sym sym4 symbol-chord "*d" mods mod-chord)))))
+(gen-dict "shortcuts.json"
+          (-> (into {} (for [[mod-chord mods] mods
+                             [letter-chord letter] letters]
+                         [(str intial-chord mod-chord letter-chord)
+                          (shortcut mods letter)]))
+              (merge (into {} (for [[mod-chord mods] mods
+                                    [symbol-chord [sym1 sym2 sym3 sym4]] sym/special-symbols]
+                                (merge (sym sym1 symbol-chord "" mods mod-chord)
+                                       (sym sym2 symbol-chord "d" mods mod-chord)
+                                       (sym sym3 symbol-chord "*" mods mod-chord)
+                                       (sym sym4 symbol-chord "*d" mods mod-chord)))))))
 
-          json/write-str))

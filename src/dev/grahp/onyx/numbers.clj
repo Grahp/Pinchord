@@ -1,5 +1,5 @@
 (ns dev.grahp.onyx.numbers
-  (:require [dev.grahp.onyx.gen :refer [gen]]))
+  (:require [dev.grahp.onyx.dict :refer [gen-dict]]))
 
 (def initial-chord "*TP")
 

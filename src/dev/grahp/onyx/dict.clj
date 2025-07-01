@@ -6,9 +6,13 @@
 (s/def ::translation string?)
 (s/def ::dict (s/map-of ::outline ::translation))
 
+(defn spit-resource [name content]
+  (spit (str "resources/" name) content))
+
 (defn gen-dict
   "Takes a clojure map of string outlines to translations.
-  spits a json file in the recources dir with the provided name"
+  spits a json file in the resources dir with the provided name"
   [name dict]
-  (spit (str "resources/" name)
-        (json/write-str (dissoc dict "-"))))
+  (spit-resource name (-> dict
+                          (dissoc "-")
+                          json/write-str)))
