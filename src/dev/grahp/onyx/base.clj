@@ -264,6 +264,7 @@
              "P" "p"
              "P*" "pl"
              "LP" "lp"
+             "LP*" "ft"
              "RP" "rp"
              "RP*" "w"
 
