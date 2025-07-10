@@ -249,6 +249,7 @@
              "LPTS" "lch"
              "LPTS*" "dg"
              "LRPTS" "nch"
+             "LRPTS*" "nction"
              "RPTS" "rch"
              "RPTS*" "ction"
 
