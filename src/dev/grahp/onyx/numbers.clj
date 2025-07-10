@@ -1,7 +1,7 @@
 (ns dev.grahp.onyx.numbers
   (:require [dev.grahp.onyx.dict :refer [gen-dict]]))
 
-(def initial-chord "*TP")
+(def initial-chord "*TPL")
 
 (def numpad1 {"" ""
               "LRK" "0"
